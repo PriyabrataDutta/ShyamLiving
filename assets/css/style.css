@@ -1,8 +1,8 @@
 /*
-Template Name: Moonlit - Hotel and Resturant HTML Template
-Author: Reacthemes
-Author URI: https://themeforest.net/user/reacthemes
-Tags: Hotel, Resturant, Spa, Message, Honeymoon, Booking
+Template Name: Shyam Stay 
+Author: Priyabrata Dutta
+Author URI: Linked IN
+Tags: Hotel, Hostel
 Version: 1.0
 */
 /* ---------------------
@@ -472,6 +472,21 @@ p:last-child {
 
 .pt-30 {
   padding-top: 30px;
+}
+
+.py-10{
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.py-20{
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.py-30{
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 
 .py-40 {
@@ -12922,15 +12937,5 @@ textarea:focus-visible, input:focus-visible {
   gap: 5px;
 }
 
-/*
-if you need custom styles, please add it in this file below
 
-For example:
-.custom{
-    color: red;
-}
-*/
-/*
-If you love our template, please give us a star on https://themeforest.net/user/reacthemes
-*/
 /*# sourceMappingURL=../maps/style.css.map */
