@@ -8015,6 +8015,8 @@ textarea:focus-visible, input:focus-visible {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-top: 15px; /* Adjust to increase header height */
+  padding-bottom: 15px; /* Adjust to increase header height */
 }
 
 .main__right {
@@ -10285,12 +10287,15 @@ textarea:focus-visible, input:focus-visible {
 .advance__search .query__input select {
   position: relative;
   width: 100%;
-  margin-left: 25px;
+  margin-left: 2px;
   border: 0;
   z-index: 1;
   cursor: pointer;
   color: var(--rts-para);
   background-color: transparent;
+  border: 0.5px solid;
+  border-radius: 5px;
+  border-color: var(--rts-heading);
 }
 .advance__search .query__input__icon {
   position: absolute;
@@ -10324,7 +10329,7 @@ textarea:focus-visible, input:focus-visible {
 .advance__search .query__input .form-select {
   --bs-form-select-bg-img: unset;
   outline: none;
-  margin-left: 15px;
+  margin-left: 1px;
   padding: 0 15px;
   top: 1px;
 }
