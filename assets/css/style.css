@@ -47,9 +47,10 @@ All CSS Structure Follow this Order
   --rts-black: #000000;
   --rts-white: #FFFFFF;
   --rts-gray: #F1F1F1;
+  --rts-deep-blue: #0E3386;
   /* Background Color */
-  --btn-1: #AB8A62;
-  --heading-color: #AB8A62;
+  --btn-1: #e43749;
+  --heading-color: #042a7c;
   --rts-border: rgba(125, 128, 135, 0.3);
   --transparent: transparent;
   --transition: all .4s ease;
@@ -330,7 +331,7 @@ h6, .h6 {
 }
 
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
-  color: var(--rts-heading);
+  color: var(--btn-1);
   font-weight: 400;
   font-family: var(--glida);
 }
@@ -7935,14 +7936,20 @@ textarea:focus-visible, input:focus-visible {
 [data-theme=dark] .header__top {
   border-bottom-color: rgba(101, 103, 107, 0.65);
 }
-
+.whatsapp__link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--color-success);
+}
 .header__top {
-  padding: 8px 0;
+  padding: 4px 0;
   border-bottom: 0.5px solid rgba(101, 103, 107, 0.2);
+  background-color: var(--btn-1);
 }
 .header__top .link__item {
   font-size: 14px;
-  color: var(--rts-para);
+  color: var(--rts-white);
 }
 .header__top .link__item i {
   top: 2px;
@@ -8006,6 +8013,7 @@ textarea:focus-visible, input:focus-visible {
   width: 100%;
   top: 0;
   padding: 0;
+  background-color: var(--rts-deep-blue);
 }
 @media screen and (max-width: 992px) {
   .header__function.is__sticky {
@@ -8019,6 +8027,7 @@ textarea:focus-visible, input:focus-visible {
 .main__header {
   padding-top: 0;
   padding-bottom: 0;
+  background-color: var(--rts-deep-blue);
 }
 @media screen and (max-width: 992px) {
   .main__header {
@@ -8897,6 +8906,10 @@ textarea:focus-visible, input:focus-visible {
   background-color: var(--rts-gray);
   font-size: 45px;
   color: var(--heading-color);
+}
+.about-icons{
+  height: 32px;
+  min-width: 32px;
 }
 
 .about__images {
