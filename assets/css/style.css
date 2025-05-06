@@ -12952,110 +12952,67 @@ textarea:focus-visible, input:focus-visible {
   gap: 5px;
 }
 
-/* Floating Bottom Bar */
-.floating-bottom-bar {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: #007bff;
-  color: white;
-  z-index: 1000;
-  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
-  padding: 10px 0;
-}
-
-.floating-bottom-bar .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-}
-
-.contact-btn {
-  display: flex;
-  align-items: center;
-  padding: 10px 20px;
-  background-color: white;
-  color: #007bff;
-  border-radius: 30px;
-  text-decoration: none;
-  font-size: 16px;
-  transition: background-color 0.3s ease;
-}
-
-.contact-btn img {
-  width: 24px;
-  height: 24px;
-  margin-right: 8px;
-}
-
-.contact-btn:hover {
-  background-color: #0056b3;
-  color: white;
-}
-
-.phone-btn {
-  background-color: #28a745;
-}
-
-.phone-btn:hover {
-  background-color: #218838;
-}
-
-.whatsapp-btn {
-  background-color: #25d366;
-}
-
-.whatsapp-btn:hover {
-  background-color: #128c7e;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .floating-bottom-bar .container {
-      gap: 15px;
-  }
-  .contact-btn {
-      padding: 8px 15px;
-      font-size: 14px;
-  }
-}
-
+/*Scroller CSS*.*/
 section {
-  display: flex;
-  font-family: 'Poppins', sans-serif;
-  flex-direction: column;
-  justify-content: center;
-  gap: 50px;
-  min-height: 100vh;
+  max-width: 100%;
   overflow: hidden;
 }
 
-.marquee {
-  padding: 1vw;
-  white-space: nowrap;
+.marquee-orange {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  margin: 20px 0;
+  /* background-color: var(--btn-1); */
+  padding: 15px 0;
 }
-  
-.marquee:first-child {
-  background-color: #ee6c52;
-  transform: rotateZ(-2deg);
+.marc-orange {
+  background-color: var(--btn-1)!important;
 }
 
-.marquee:last-child {
-  background-color: #1f1f1f;
-  transform: rotateZ(-1deg);
+.marc-blu {
+  background-color: var(--rts-deep-blue)!important;
 }
 
 .marquee__inner {
   display: flex;
-  gap: 20px;
+  position: relative;
+  width: fit-content;
 }
 
 .marquee__content {
-  color: #fff;
-  font-size: clamp(40px, 4.375vw, 70px);
+  white-space: nowrap;
+  padding: 0 20px;
+  font-family: var(--h2);
+  font-size: 35px;
+  color: var(--rts-white);
+  /* Make each content item wider */
+  min-width: 100%;
 }
 
+/* Left to right animation (default) */
+@keyframes marquee-ltr {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-10%);
+  }
+}
+
+/* Right to left animation (reverse) */
+@keyframes marquee-rtl {
+  from {
+    transform: translateX(-20%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Apply direction classes */
+.marquee--reverse .marquee__inner {
+  justify-content: flex-end;
+}
 
 /*# sourceMappingURL=../maps/style.css.map */
