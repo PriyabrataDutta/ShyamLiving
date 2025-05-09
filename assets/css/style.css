@@ -49,6 +49,8 @@ All CSS Structure Follow this Order
   --rts-gray: #F1F1F1;
   --rts-deep-blue: #0E3386;
   --rts-lightBlue: #076D9A;
+  --rts-pale-blue: #E8F4FF;
+
   /* Background Color */
   --btn-1: #e43749;
   --heading-color: #042a7c;
@@ -383,6 +385,9 @@ p:last-child {
   background-color: var(--rts-button-1);
   content: "";
 }
+.background-tt{
+  background-color: var(--rts-pale-blue);
+}
 
 .rts__section {
   position: relative;
@@ -476,6 +481,11 @@ p:last-child {
 
 .pt--10 {
   top: -10px;
+}
+
+.pt-lr{
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 .pt-30 {
