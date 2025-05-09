@@ -8021,10 +8021,11 @@ textarea:focus-visible, input:focus-visible {
   top: 0;
   padding: 0;
   background-color: var(--rts-white);
+  border-bottom: 1px solid var(--btn-1);
 }
 @media screen and (max-width: 992px) {
   .header__function.is__sticky {
-    padding: 15px 0;
+    padding: 0px 0;
   }
 }
 .header__function.is__home__video.is__sticky {
