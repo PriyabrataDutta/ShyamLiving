@@ -48,6 +48,7 @@ All CSS Structure Follow this Order
   --rts-white: #FFFFFF;
   --rts-gray: #F1F1F1;
   --rts-deep-blue: #0E3386;
+  --rts-lightBlue: #076D9A;
   /* Background Color */
   --btn-1: #e43749;
   --heading-color: #042a7c;
@@ -7951,7 +7952,7 @@ textarea:focus-visible, input:focus-visible {
 .header__top {
   padding: 4px 0;
   border-bottom: 0.5px solid rgba(101, 103, 107, 0.2);
-  background-color: var(--btn-1);
+  background-color: var(--rts-lightBlue);
 }
 .header__top .link__item {
   font-size: 14px;
@@ -8019,7 +8020,7 @@ textarea:focus-visible, input:focus-visible {
   width: 100%;
   top: 0;
   padding: 0;
-  background-color: var(--rts-deep-blue);
+  background-color: var(--rts-white);
 }
 @media screen and (max-width: 992px) {
   .header__function.is__sticky {
@@ -8033,11 +8034,11 @@ textarea:focus-visible, input:focus-visible {
 .main__header {
   padding-top: 0;
   padding-bottom: 0;
-  background-color: var(--rts-deep-blue);
+  background-color: var(--rts-white);
 }
 @media screen and (max-width: 992px) {
   .main__header {
-    padding: 20px 0;
+    padding: 0px 0;
   }
 }
 
@@ -8060,8 +8061,11 @@ textarea:focus-visible, input:focus-visible {
   }
 }
 @media screen and (max-width: 576px) {
-  .main__right .theme-btn.fill {
+  .main__right .theme-btn.fill:not(.vismobile) {
     display: none;
+  }
+  .main__right .theme-btn.fill.vismobile {
+    display: block !important;
   }
 }
 @media screen and (max-width: 576px) {
@@ -12971,7 +12975,7 @@ section {
   padding: 15px 0;
 }
 .marc-orange {
-  background-color: var(--btn-1)!important;
+  background-color: var(--rts-lightBlue)!important;
 }
 
 .marc-blu {
@@ -13078,4 +13082,45 @@ section {
     background-color: #1f7a12
 }
 
+.vismobile{
+  display: block !important; /* Make visible on all devices */
+  visibility: visible !important;
+}
+
+/* Mobile Book Now Button */
+.mobile-book-now {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: var(--btn-1);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 50px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  z-index: 9999;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.mobile-book-now span {
+  color: white;
+}
+
+.mobile-book-now:hover {
+  background-color: #c52c3c; /* Darker shade of the button color */
+  transform: scale(1.05);
+}
+
+@media screen and (max-width: 768px) {
+  .mobile-book-now {
+    display: block !important;
+  }
+  
+  .vismobile {
+    display: block !important;
+  }
+}
 /*# sourceMappingURL=../maps/style.css.map */
