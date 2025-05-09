@@ -13105,22 +13105,10 @@ section {
   transition: all 0.3s ease;
 }
 
-.mobile-book-now span {
-  color: white;
-}
 
-.mobile-book-now:hover {
-  background-color: #c52c3c; /* Darker shade of the button color */
-  transform: scale(1.05);
-}
-
-@media screen and (max-width: 768px) {
-  .mobile-book-now {
-    display: block !important;
-  }
   
   .vismobile {
     display: block !important;
   }
-}
+
 /*# sourceMappingURL=../maps/style.css.map */
