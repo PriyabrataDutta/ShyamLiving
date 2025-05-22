@@ -1,12 +1,7 @@
 <?php
 /**
- * Booking Form Processing Script
- * 
- * This script processes the booking form submissions from booking.html
- * and sends an email notification to the site administrator.
+ * Booking Form Processing Script using PHPMailer
  */
-
-// Only process POST requests
 
 require 'src/PHPMailer.php';
 require 'src/SMTP.php';
@@ -18,7 +13,7 @@ use PHPMailer\PHPMailer\Exception;
 // Only process POST requests
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    // Get form data and sanitize inputs
+    // Get and sanitize form data
     $full_name = filter_var($_POST['full_name'] ?? '', FILTER_SANITIZE_STRING);
     $email = filter_var($_POST['email'] ?? '', FILTER_SANITIZE_EMAIL);
     $phone = filter_var($_POST['phone'] ?? '', FILTER_SANITIZE_STRING);
@@ -31,33 +26,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit;
     }
 
-    // Validate email format
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         http_response_code(400);
         echo "Please enter a valid email address.";
         exit;
     }
 
-    // Send email using PHPMailer
+    // Create a new PHPMailer instance
     $mail = new PHPMailer(true);
 
     try {
-        // Server settings
+        // SMTP configuration (use your actual SMTP details)
         $mail->isSMTP();
-        $mail->Host       = 'smtp.example.com';      // Your SMTP server
-        $mail->SMTPAuth   = true;
-        $mail->Username   = 'your-email@example.com'; // Your SMTP username
-        $mail->Password   = 'your-email-password';    // Your SMTP password
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-        $mail->Port       = 587;
+        $mail->Host = 'smtp.example.com';         // Replace with your SMTP host
+        $mail->SMTPAuth = true;
+        $mail->Username = 'your@email.com';       // Replace with your SMTP username
+        $mail->Password = 'yourpassword';         // Replace with your SMTP password
+        $mail->SMTPSecure = 'tls';                // Or use 'ssl'
+        $mail->Port = 587;                        // Or 465 for SSL
 
-        // Recipients
-        $mail->setFrom('your-email@example.com', 'Booking Form');
-        $mail->addAddress('admin@example.com', 'Site Admin');  // Change to your admin email    
-    
-        // Build email content
-    $email_content = "
-    <html>
+        // Sender and recipient
+        $mail->setFrom('your@email.com', 'Website Booking');
+        $mail->addAddress('admin@example.com');   // Recipient's email
+
+        // Email content
+        $mail->isHTML(true);
+        $mail->Subject = 'New Booking Request';
+        $mail->Body    = "
+            <html>
     <head>
         <title>New Booking Request</title>
         <style>
@@ -94,41 +90,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </body>
     </html>
     ";
-    
-    // Set email headers
-    $headers = "From: $full_name <$email>\r\n";
-    $headers .= "Reply-To: $email\r\n";
-    $headers .= "MIME-Version: 1.0\r\n";
-    $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
-    
-    $mail->send();
-        // Success response
-        http_response_code(200);
-        echo "Thank you for your booking request! We'll contact you shortly to confirm your reservation.";
+        $mail->AltBody = "Name: $full_name\nEmail: $email\nPhone: $phone\nPG Type: $pg_type";
+
+        $mail->send();
+         // ✅ Redirect to thank you page on success
+        header("Location: thank-you.html");
+        exit;
+        // http_response_code(200);
+        // echo "Thank you! Your booking has been received.";
+
     } catch (Exception $e) {
-        // Error response
         http_response_code(500);
-        echo "Oops! Something went wrong and we couldn't send your message.";
+        echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
     }
-    // Send email
-//     if (mail($recipient, $subject, $email_content, $headers)) {
-//         // Success response
-//         http_response_code(200);
-//         echo "Thank you for your booking request! We'll contact you shortly to confirm your reservation.";
-//     } else {
-//         // Error response
-//         http_response_code(500);
-//         echo "Oops! Something went wrong and we couldn't send your message.";
-//     }
-    
-// } else {
-//     // Not a POST request
-//     http_response_code(403);
-//     echo "There was a problem with your submission, please try again.";
-// }
-} else {
-    // Not a POST request
-    http_response_code(403);
-    echo "There was a problem with your submission, please try again.";
 }
-?>
