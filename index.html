@@ -272,39 +272,40 @@
     <!-- advance search -->
     <div class="rts__section advance__search__section is__home__one">
         <div class="container">
-            <div class="row">
-                <form action="process-booking.php" method="post" class="advance__search">
+            <div class="row">    
+                <form id="booking-form" action="process-booking.php" method="post" class="advance__search">
                     <div class="advance__search__wrapper wow fadeInUp">
                         
                         <!-- Name Input -->
                         <div class="query__input">
-                            <label for="name" class="text-dark mb-3">Name</label>
-                            <input type="text" id="name" name="name" placeholder="Enter Your Name" required>
+                            <label for="full_name" class="text-dark mb-3">Name</label>
+                              <input type="text" id="full_name" name="full_name" class="form-control" required>
                         </div>
                         
                         <!-- Phone Number Input -->
                         <div class="query__input">
                             <label for="phone" class="query__label">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" placeholder="Enter Your Phone Number" required>
+                            <input type="number" id="phone" name="phone" class="form-control" required>
                         </div>
                         
                         <!-- Email Input -->
                         <div class="query__input">
                             <label for="email" class="query__label">Email ID</label>
-                            <input type="email" id="email" name="email" placeholder="Enter Your Email ID" required>
+                            <input type="email" id="email" name="email" class="form-control" required>
                         </div>
     
                         <!-- PG Type Dropdown -->
                         <div class="query__input">
                             <label for="pg_type" class="query__label">Accommodation type</label>
                             <select name="pg_type" id="pg_type" class="form-select" required>
+                                <option value="">Select Type</option>
                                 <option value="boys">Boys</option>
                                 <option value="girls">Girls</option>
                             </select>
                         </div>
     
                         <!-- Submit Button -->
-                        <button class="theme-btn btn-style fill no-border search__btn">
+                        <button type="submit" class="theme-btn btn-style fill no-border search__btn">
                             <span>Submit</span>
                         </button>
                     </div>
